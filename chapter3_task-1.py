@@ -1,5 +1,7 @@
-# Дан список слов в алфавитном порядке. Напишите функцию, которая выполнит двоичный поиск слова и вернет ответ о том, имеется ли оно в списке.
+# Given a list of words in alphabetical order, write a function that performs a binary search for a word and returns whether it is in the list.
+# Cory Althoff's solution (Does not work): https://github.com/calthoff/tstcs_challenge_solutions/blob/main/chapter3_ex1.py
 
+# My solution
 def binary_search1(an_iterable, word):
     first = 0
     last = len(an_iterable) - 1
