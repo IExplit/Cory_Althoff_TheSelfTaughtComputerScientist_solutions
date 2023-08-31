@@ -5,6 +5,7 @@ def get_minrun(n):
         n >>= 1
     return n + r
 
+
 def insertion_sort(a_list, start, end):
     for i in range(start+1, end+1):
         num = i
@@ -15,6 +16,7 @@ def insertion_sort(a_list, start, end):
         else:
             break
     return a_list
+
 
 def merge(a_list, start1, stop1, start2, stop2):
     left_list = a_list[start1:stop1+start1].copy()
