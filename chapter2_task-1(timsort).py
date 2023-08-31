@@ -19,8 +19,8 @@ def insertion_sort(a_list, start, end):
 
 
 def merge(a_list, start1, stop1, start2, stop2):
-    left_list = a_list[start1:stop1+start1].copy()
-    right_list = a_list[start2:stop2+start2].copy()
+    left_list = a_list[start1:stop1+start1]
+    right_list = a_list[start2:stop2+start2]
     main_id = start1
     left_id = 0
     right_id = 0
