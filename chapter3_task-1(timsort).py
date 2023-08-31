@@ -1,3 +1,6 @@
+# Cory Althoff's solution:  https://github.com/calthoff/tstcs_challenge_solutions/blob/main/chapter4.py
+
+# My solution
 def get_minrun(n):
     r = 0
     while n >= 64:
@@ -49,7 +52,6 @@ def timsort(a_list):
     for i in range(0, len(a_list), minrun):
         a_list = insertion_sort(a_list, i, minrun+i)
         runs.append([i, len(a_list[i:minrun+i])])
-    runs_id = len(runs) - 1
     i = 1
     while len(runs) > 1:
         if len(runs) > 2:
