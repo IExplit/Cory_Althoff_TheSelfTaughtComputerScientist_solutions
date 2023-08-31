@@ -7,7 +7,6 @@ def get_minrun(n):
 
 def insertion_sort(a_list, start, end):
     for i in range(start+1, end+1):
-        
         num = i
         if i < len(a_list):
             while a_list[i-1] > a_list[num] and i != start:
@@ -15,7 +14,6 @@ def insertion_sort(a_list, start, end):
             a_list.insert(i, a_list.pop(num))
         else:
             break
-        
     return a_list
 
 def merge(a_list, start1, stop1, start2, stop2):
@@ -32,7 +30,6 @@ def merge(a_list, start1, stop1, start2, stop2):
             a_list[main_id] = right_list[right_id]
             right_id += 1
         main_id += 1
-    
     while left_id < len(left_list) and main_id < len(a_list):
         a_list[main_id] = left_list[left_id]
         left_id += 1
@@ -47,11 +44,9 @@ def merge(a_list, start1, stop1, start2, stop2):
 def timsort(a_list):
     minrun = get_minrun(len(a_list))
     runs = []
-
     for i in range(0, len(a_list), minrun):
         a_list = insertion_sort(a_list, i, minrun+i)
         runs.append([i, len(a_list[i:minrun+i])])
-    
     runs_id = len(runs) - 1
     i = 1
     while len(runs) > 1:
@@ -60,7 +55,6 @@ def timsort(a_list):
                 a_list = merge(a_list, runs[i-1][0], runs[i-1][1], runs[i][0], runs[i][1])
                 runs[i-1] = [runs[i-1][0], runs[i-1][1] + runs[i][1]]
                 runs.pop(i)
-
             elif runs[i-1][1] > runs[i+1][1]:
                 a_list = merge(a_list, runs[i][0], runs[i][1], runs[i+1][0], runs[i+1][1])
                 runs[i] = [runs[i][0], runs[i+1][1] + runs[i][1]]
@@ -69,12 +63,7 @@ def timsort(a_list):
             a_list = merge(a_list, runs[i-1][0], runs[i-1][1], runs[i][0], runs[i][1])
             runs[i-1] = [runs[i-1][0], runs[i-1][0] + runs[i][1]]
             runs.pop(i)
-        
-        if i >= len(runs) - 2:
-            i = 1
-        
-        else:
-            i += 1
+        i = 1 if i >= len(runs) - 2 else i + 1
     return a_list
 
         
